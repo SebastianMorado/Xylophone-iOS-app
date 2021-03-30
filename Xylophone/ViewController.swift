@@ -19,6 +19,22 @@ class ViewController: UIViewController {
 
     @IBAction func keyPressed(_ sender: UIButton) {
         playSound(noteName : sender.currentTitle!)
+        
+        //Below code is for instant transition of opacity
+        //
+        //DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+        //    sender.alpha = 1
+        //}
+        
+        //Smoother transition
+        UIView.animate(withDuration: 0.2) {
+            sender.alpha = 1
+        }
+        
+    }
+    
+    @IBAction func keyDown(_ sender: UIButton) {
+        sender.alpha = 0.5
     }
     
     func playSound(noteName : String) {
